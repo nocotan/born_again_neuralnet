@@ -74,6 +74,7 @@ def main():
     criterion = nn.CrossEntropyLoss()
     i = 0
     best_loss = 1e+9
+    best_loss_list = []
     print("train...")
     for gen in range(args.n_gen):
         for epoch in range(args.n_epoch):
@@ -109,9 +110,16 @@ def main():
                           ", train loss: ", t_loss,
                           ", val_loss: ", val_loss)
 
+        print("best loss: ", best_loss)
         print("Born Again...")
         updater.register_last_model(last_model_weight)
         updater.gen += 1
+        best_loss_list.append(best_loss)
+        best_loss = 1e+9
+
+    for gen in range(args.n_gen):
+        print("Gen: ", gen,
+              ", best loss: ", best_loss_list[gen])
 
 
 if __name__ == "__main__":
