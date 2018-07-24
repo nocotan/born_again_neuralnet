@@ -15,6 +15,12 @@ We study KD from a new perspective:
 rather than compressing models, we train students
 parameterized identically to their teachers.
 
+## Examples
+* dataset: cifar-10
+* base model: ResNet-50
+
+<img src="https://github.com/nocotan/born_again_neuralnet/blob/master/images/resnet50_cifar10.png">
+
 
 ## Training
 ```bash
