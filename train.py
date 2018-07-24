@@ -13,6 +13,7 @@ from tensorboardX import SummaryWriter
 
 from ban import config
 from ban.updater import BANUpdater
+from common.logger import Logger
 
 
 def main():
@@ -22,12 +23,13 @@ def main():
     parser.add_argument("--n_epoch", type=int, default=50)
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--n_gen", type=int, default=3)
-    parser.add_argument("--ensemble", action="store_true")
     parser.add_argument("--dataset", type=str, default="cifar10")
     parser.add_argument("--outdir", type=str, default="snapshots")
     parser.add_argument("--print_interval", type=int, default=50)
     args = parser.parse_args()
-    print(args)
+
+    logger = Logger(args)
+    logger.print_args()
 
     if torch.cuda.is_available():
         device = torch.device("cuda")
@@ -72,9 +74,11 @@ def main():
     writer = SummaryWriter()
     updater = BANUpdater(**kwargs)
     criterion = nn.CrossEntropyLoss()
+
     i = 0
     best_loss = 1e+9
     best_loss_list = []
+
     print("train...")
     for gen in range(args.n_gen):
         for epoch in range(args.n_epoch):
@@ -105,10 +109,7 @@ def main():
 
                     writer.add_scalar("val_loss", val_loss, i)
 
-                    print("epoch: ", epoch,
-                          ", iter: ", i,
-                          ", train loss: ", t_loss,
-                          ", val_loss: ", val_loss)
+                    logger.print_log()
 
         print("best loss: ", best_loss)
         print("Born Again...")
