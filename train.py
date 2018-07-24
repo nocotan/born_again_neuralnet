@@ -23,6 +23,7 @@ def main():
     parser.add_argument("--n_epoch", type=int, default=50)
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--n_gen", type=int, default=3)
+    parser.add_argument("--resume_gen", type=int, default=0)
     parser.add_argument("--dataset", type=str, default="cifar10")
     parser.add_argument("--outdir", type=str, default="snapshots")
     parser.add_argument("--print_interval", type=int, default=50)
@@ -80,7 +81,7 @@ def main():
     best_loss_list = []
 
     print("train...")
-    for gen in range(args.n_gen):
+    for gen in range(args.resume_gen, args.n_gen):
         for epoch in range(args.n_epoch):
             train_loss = 0
             for idx, (inputs, targets) in enumerate(train_loader):
