@@ -19,7 +19,7 @@ parameterized identically to their teachers.
 * dataset: cifar-10
 * base model: ResNet-50
 
-<img src="https://github.com/nocotan/born_again_neuralnet/blob/master/images/resnet50_cifar10.png">
+![example](images/resnet50_cifar10.png)
 
 
 ## Training
