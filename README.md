@@ -47,3 +47,6 @@ optional arguments:
   -h, --help            show this help message and exit
   --weights_root WEIGHTS_ROOT
 ```
+
+## References
+* Furlanello, T., Lipton, Z., Tschannen, M., Itti, L.&Anandkumar, A.. (2018). Born-Again Neural Networks.Proceedings of the 35th International Conference on Machine Learning, in PMLR80:1602-1611
