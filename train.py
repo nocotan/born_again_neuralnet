@@ -18,14 +18,14 @@ from ban.updater import BANUpdater
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--weight", type=str, default=None)
-    parser.add_argument("--lr", type=float, default=0.05)
-    parser.add_argument("--n_epoch", type=int, default=200)
+    parser.add_argument("--lr", type=float, default=0.01)
+    parser.add_argument("--n_epoch", type=int, default=50)
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--n_gen", type=int, default=3)
     parser.add_argument("--ensemble", action="store_true")
     parser.add_argument("--dataset", type=str, default="cifar10")
     parser.add_argument("--outdir", type=str, default="snapshots")
-    parser.add_argument("--print_interval", type=int, default=100)
+    parser.add_argument("--print_interval", type=int, default=50)
     args = parser.parse_args()
     print(args)
 
