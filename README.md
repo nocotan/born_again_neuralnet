@@ -1,3 +1,49 @@
 # Born-Again Neural Networks
+Unofficial pytorch implementation of Born-Again Neural Networks.
 
-* http://proceedings.mlr.press/v80/furlanello18a/furlanello18a.pdf
+* link: http://proceedings.mlr.press/v80/furlanello18a/furlanello18a.pdf
+
+> Knowledge Distillation (KD) consists of transferring
+“knowledge” from one machine learning
+model (the teacher) to another (the student).
+Commonly, the teacher is a high-capacity model
+with formidable performance, while the student
+is more compact. By transferring knowledge,
+one hopes to benefit from the student’s compactness,
+without sacrificing too much performance.
+We study KD from a new perspective:
+rather than compressing models, we train students
+parameterized identically to their teachers.
+
+
+## Training
+```bash
+$ python train.py --h
+usage: train.py [-h] [--weight WEIGHT] [--lr LR] [--n_epoch N_EPOCH]
+                [--batch_size BATCH_SIZE] [--n_gen N_GEN]
+                [--resume_gen RESUME_GEN] [--dataset DATASET]
+                [--outdir OUTDIR] [--print_interval PRINT_INTERVAL]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --weight WEIGHT
+  --lr LR
+  --n_epoch N_EPOCH
+  --batch_size BATCH_SIZE
+  --n_gen N_GEN
+  --resume_gen RESUME_GEN
+  --dataset DATASET
+  --outdir OUTDIR
+  --print_interval PRINT_INTERVAL
+```
+
+## Inference
+
+```bash
+$ python infer.py --h
+usage: infer.py [-h] [--weights_root WEIGHTS_ROOT]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --weights_root WEIGHTS_ROOT
+```
