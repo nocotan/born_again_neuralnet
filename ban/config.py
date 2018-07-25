@@ -6,5 +6,11 @@ from ban.models.resnet import ResNet50
 from ban.models.resnet import ResNet101
 from ban.models.resnet import ResNet152
 
+"""
+add your model.
+from your_model_file import Model
+model = Model()
+"""
+
 
 model = ResNet50()
