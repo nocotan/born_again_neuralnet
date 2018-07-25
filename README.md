@@ -1,4 +1,7 @@
 # Born-Again Neural Networks
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 Unofficial pytorch implementation of Born-Again Neural Networks.
 
 * link: http://proceedings.mlr.press/v80/furlanello18a/furlanello18a.pdf
