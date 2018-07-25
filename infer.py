@@ -14,6 +14,7 @@ from ban import config
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--weights_root", type=str, default="./snapshots")
+    parser.add_argument("--batch_size", type=int, default=100)
     args = parser.parse_args()
     print(args)
 
@@ -30,7 +31,7 @@ def main():
 
     testset = CIFAR10(root='./data', train=False,
                       download=True, transform=transform)
-    testloader = DataLoader(testset, batch_size=100,
+    testloader = DataLoader(testset, batch_size=args.batch_size,
                             shuffle=False, num_workers=2)
 
     model = config.model.to(device)
