@@ -110,7 +110,7 @@ def main():
 
                     writer.add_scalar("val_loss", val_loss, i)
 
-                    logger.print_log(epoch, idx, train_loss, val_loss)
+                    logger.print_log(epoch, i, train_loss, val_loss)
 
         print("best loss: ", best_loss)
         print("Born Again...")

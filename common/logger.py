@@ -8,12 +8,12 @@ class Logger(object):
     def print_args(self):
         print("weight: ", self.args.weight)
         print("lr: ", self.args.lr)
-        print("n_epoch: ", self.n_epoch)
-        print("batch_size: ", self.batch_size)
-        print("n_gen: ", self.n_gen)
-        print("dataset: ", self.dataset)
-        print("outdir: ", self.outdir)
-        print("print_interval: ", self.print_interval)
+        print("n_epoch: ", self.args.n_epoch)
+        print("batch_size: ", self.args.batch_size)
+        print("n_gen: ", self.args.n_gen)
+        print("dataset: ", self.args.dataset)
+        print("outdir: ", self.args.outdir)
+        print("print_interval: ", self.args.print_interval)
 
     def print_log(self, epoch, it, train_loss, val_loss):
         print("epoch: {}, iter: {}, train_loss: {}, val_loss: {}".format(
