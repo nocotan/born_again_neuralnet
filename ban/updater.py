@@ -30,10 +30,10 @@ class BANUpdater(object):
         self.last_model = config.get_model()
         self.last_model.load_state_dict(torch.load(weight))
 
-    def kd_loss(self, outputs, labels, teacher_outputs, alpha=0.9, T=20):
+    def kd_loss(self, outputs, labels, teacher_outputs, alpha=0.4, T=20):
         KD_loss = nn.KLDivLoss()(F.log_softmax(outputs/T, dim=1),
                                  F.softmax(teacher_outputs/T, dim=1)) * \
-            (alpha * T * T) + F.cross_entropy(outputs, labels) * (1. - alpha)
+            alpha + F.cross_entropy(outputs, labels) * (1. - alpha)
 
         return KD_loss
 
