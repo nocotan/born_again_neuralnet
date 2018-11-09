@@ -69,7 +69,7 @@ def main():
                              batch_size=args.batch_size,
                              shuffle=False)
 
-    model = config.model.to(device)
+    model = config.get_model().to(device)
     if args.weight:
         model.load_state_dict(torch.load(args.weight))
 
@@ -127,7 +127,7 @@ def main():
         updater.gen += 1
         best_loss_list.append(best_loss)
         best_loss = 1e+9
-        model = config.model.to(device)
+        model = config.get_model().to(device)
         optimizer = optim.Adam(model.parameters(), lr=args.lr)
         updater.model = model
 

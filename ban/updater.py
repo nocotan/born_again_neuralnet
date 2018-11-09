@@ -27,7 +27,7 @@ class BANUpdater(object):
         return loss
 
     def register_last_model(self, weight):
-        self.last_model = config.model
+        self.last_model = config.get_model()
         self.last_model.load_state_dict(torch.load(weight))
 
     def kd_loss(self, outputs, labels, teacher_outputs, alpha=0.9, T=20):

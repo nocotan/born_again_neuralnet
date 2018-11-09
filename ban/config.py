@@ -14,4 +14,6 @@ model = Model()
 """
 
 # model = ResNet50()
-model = MLP()
+def get_model():
+    model = MLP()
+    return model
