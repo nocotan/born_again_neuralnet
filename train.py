@@ -129,13 +129,7 @@ def main():
         best_loss = 1e+9
         model = config.model.to(device)
         optimizer = optim.Adam(model.parameters(), lr=args.lr)
-        kwargs = {
-            "model": model,
-            "optimizer": optimizer,
-            "n_gen": args.n_gen,
-        }
-
-        updater = BANUpdater(**kwargs)
+        updater.model = model
 
     for gen in range(args.n_gen):
         print("Gen: ", gen,
