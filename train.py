@@ -127,6 +127,7 @@ def main():
         updater.gen += 1
         best_loss_list.append(best_loss)
         best_loss = 1e+9
+        model = config.model.to(device)
 
     for gen in range(args.n_gen):
         print("Gen: ", gen,

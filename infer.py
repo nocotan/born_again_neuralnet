@@ -6,13 +6,14 @@ import argparse
 import torch
 from torch.utils.data import DataLoader
 from torchvision import transforms
-from torchvision.datasets import CIFAR10
+from torchvision.datasets import CIFAR10. MNIST
 
 from ban import config
 
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset", type=str, default="cifar10")
     parser.add_argument("--weights_root", type=str, default="./snapshots")
     parser.add_argument("--batch_size", type=int, default=100)
     args = parser.parse_args()
@@ -25,12 +26,16 @@ def main():
 
     transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465),
-                             (0.2023, 0.1994, 0.2010)),
     ])
 
-    testset = CIFAR10(root='./data', train=False,
-                      download=True, transform=transform)
+    if args.dataset == "cifar10":
+        testset = CIFAR10(root='./data', train=False,
+                          download=True, transform=transform)
+    else:
+        testset = MNIST(root="./data",
+                        train=False,
+                        download=True,
+                        transform=transform)
     testloader = DataLoader(testset, batch_size=args.batch_size,
                             shuffle=False, num_workers=2)
 
