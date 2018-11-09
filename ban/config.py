@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from ban.models.mlp import MLP
 from ban.models.lenet import LeNet
 from ban.models.resnet import ResNet18
 from ban.models.resnet import ResNet34
@@ -12,5 +13,5 @@ from your_model_file import Model
 model = Model()
 """
 
-
-model = ResNet50()
+# model = ResNet50()
+model = MLP()

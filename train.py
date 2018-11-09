@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torchvision import transforms
-from torchvision.datasets import CIFAR10
+from torchvision.datasets import CIFAR10, MNIST
 from tensorboardX import SummaryWriter
 
 
@@ -39,27 +39,35 @@ def main():
 
     transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465),
-                             (0.2023, 0.1994, 0.2010)),
+        # transforms.Normalize((0.4914, 0.4822, 0.4465),
+        #                      (0.2023, 0.1994, 0.2010)),
     ])
 
-    trainset = CIFAR10(root="./data",
-                       train=True,
-                       download=True,
-                       transform=transform)
-    testset = CIFAR10(root="./data",
-                      train=False,
-                      download=True,
-                      transform=transform)
+    if args.dataset == "cifar10":
+        trainset = CIFAR10(root="./data",
+                           train=True,
+                           download=True,
+                           transform=transform)
+        testset = CIFAR10(root="./data",
+                          train=False,
+                          download=True,
+                          transform=transform)
+    else:
+        trainset = MNIST(root="./data",
+                         train=True,
+                         download=True,
+                         transform=transform)
+        testset = MNIST(root="./data",
+                        train=False,
+                        download=True,
+                        transform=transform)
 
     train_loader = DataLoader(trainset,
                               batch_size=args.batch_size,
-                              shuffle=True,
-                              num_workers=4)
+                              shuffle=True)
     test_loader = DataLoader(testset,
                              batch_size=args.batch_size,
-                             shuffle=False,
-                             num_workers=4)
+                             shuffle=False)
 
     model = config.model.to(device)
     if args.weight:
@@ -110,7 +118,8 @@ def main():
 
                     writer.add_scalar("val_loss", val_loss, i)
 
-                    logger.print_log(epoch, i, train_loss, val_loss)
+                    logger.print_log(epoch, i, train_loss / args.print_interval, val_loss)
+                    train_loss = 0
 
         print("best loss: ", best_loss)
         print("Born Again...")
