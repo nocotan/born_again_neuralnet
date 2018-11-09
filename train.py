@@ -130,6 +130,7 @@ def main():
         model = config.get_model().to(device)
         optimizer = optim.Adam(model.parameters(), lr=args.lr)
         updater.model = model
+        updater.optimizer = optimizer
 
     for gen in range(args.n_gen):
         print("Gen: ", gen,
