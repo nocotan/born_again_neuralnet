@@ -12,7 +12,7 @@ class MLP(nn.Module):
 
     def forward(self, x):
         x = x.view(-1, 28 * 28)
-        h = F.relu(F.dropout(self.fc1(x)))
-        h = F.relu(F.dropout(self.fc2(h)))
-        h = F.relu(F.dropout(self.fc3(h)))
+        h = F.relu(F.dropout(self.fc1(x), p=0.5))
+        h = F.relu(F.dropout(self.fc2(h), p=0.5))
+        h = F.relu(F.dropout(self.fc3(h), p=0.5))
         return h
