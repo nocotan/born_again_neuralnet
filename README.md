@@ -59,3 +59,6 @@ optional arguments:
 
 ## References
 * Furlanello, T., Lipton, Z., Tschannen, M., Itti, L.&Anandkumar, A.. (2018). Born-Again Neural Networks.Proceedings of the 35th International Conference on Machine Learning, in PMLR80:1602-1611
+
+## LICENSE
+This repository is MIT-style licensed, as found in the [LICENSE file](./LICENSE).
