@@ -62,3 +62,17 @@ optional arguments:
 
 ## LICENSE
 This repository is MIT-style licensed, as found in the [LICENSE file](./LICENSE).
+
+## Citation
+
+```bibtex
+@software{https://doi.org/10.5281/zenodo.4405020,
+  doi = {10.5281/ZENODO.4405020},
+  url = {https://zenodo.org/record/4405020},
+  author = {Masanari Kimura},
+  title = {PyTorch Born Again Neural Networks},
+  publisher = {Zenodo},
+  year = {2020},
+  copyright = {Open Access}
+}
+```
