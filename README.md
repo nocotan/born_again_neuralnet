@@ -1,6 +1,7 @@
 # Born-Again Neural Networks
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![GitHub repo size](https://img.shields.io/github/repo-size/nocotan/born_again_neuralnet)
+![GitHub top language](https://img.shields.io/github/languages/top/nocotan/born_again_neuralnet)
 
 
 Unofficial pytorch implementation of Born-Again Neural Networks.
